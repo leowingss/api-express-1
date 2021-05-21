@@ -1,29 +1,29 @@
 const { QueryTypes } = require('sequelize')
 const { sequelize } = require('../common/database')
 
-const findAll = async () => {
-  const query = 'SELECT * FROM todos'
+const findAll = async() => {
+    const query = 'SELECT * FROM todos'
 
-  const result = await sequelize.query(query, {
-    raw: false,
-    type: QueryTypes.SELECT
-  })
+    const result = await sequelize.query(query, {
+        raw: false,
+        type: QueryTypes.SELECT
+    })
 
-  return result
+    return result
 }
 
 const create = async text => {
-  const query = `INSERT INTO todos (text) VALUES ("${text}")`
+    const query = `INSERT INTO todos (text) VALUES ("${text}")`
 
-  const result = await sequelize.query(query, {
-    raw: false,
-    type: QueryTypes.INSERT
-  })
+    const result = await sequelize.query(query, {
+        raw: false,
+        type: QueryTypes.INSERT
+    })
 
-  return result
+    return result
 }
 
 module.exports = {
-  findAll,
-  create
+    findAll,
+    create
 }
